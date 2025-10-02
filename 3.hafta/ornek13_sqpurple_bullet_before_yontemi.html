@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>sqpurple bullet - ::before yöntemi</title>
+    <style>
+        /* Temel reset */
+        ul,
+        ol {
+            margin: 0 0 1rem 0;
+            padding: 0;
+        }
+
+        /* Sadece bu class'lı listelere uygula (diğerlerini bozmaz) */
+        ul.custom,
+        ol.custom {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        /* Her li için sol tarafta boşluk bırak (bullet genişliği + boşluk) */
+        ul.custom li,
+        ol.custom li {
+            position: relative;
+            padding-left: 28px;
+            /* bullet width(16) + 12px boşluk - ihtiyaca göre değiştir */
+            margin: 8px 0;
+            line-height: 1.2;
+            vertical-align: middle;
+        }
+
+        /* Gerçek bullet kutusu — burada boyutu kontrol edebilirsin */
+        ul.custom li::before,
+        ol.custom li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            /* istediğin genişlik */
+            height: 16px;
+            /* istediğin yükseklik */
+            background-image: url('sqpurple.gif');
+            background-size: contain;
+            /* resmi kutuya sığdırır */
+            background-repeat: no-repeat;
+            background-position: center;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>UL - örnek</h2>
+    <ul class="custom a">
+        <li>Elma</li>
+        <li>Muz</li>
+        <li>Kiraz</li>
+    </ul>
+
+    <h2>UL - Square</h2>
+    <ul class="b">
+        <li>Kalem</li>
+        <li>Defter</li>
+        <li>Silgi</li>
+    </ul>
+
+    <h2>OL - Upper Roman</h2>
+    <ol class="c">
+        <li>Birinci</li>
+        <li>İkinci</li>
+        <li>Üçüncü</li>
+    </ol>
+
+    <h2>OL - örnek</h2>
+    <ol class="custom c">
+        <li>Birinci</li>
+        <li>İkinci</li>
+        <li>Üçüncü</li>
+    </ol>
+
+</body>
+
+</html>

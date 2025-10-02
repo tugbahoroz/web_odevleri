@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS ve HTML Tablo Ornek</title>
+  <style>
+    table {
+      border-collapse: collapse; /* Çift çizgi olmaması için */
+      width: 60%; /* Tablonun genişliği */
+      margin: 20px auto; /* Tabloyu ortalar ve dış kısma boşluk verir */
+    }
+    th, td {
+      border: 2px solid black;   /* Tablonun kenarlarının rengi ve kalınlığı */
+      padding: 10px;   /* Tablonun iç boşluğu */
+      text-align: center;   /* Ortalamak için */
+    }
+    th {
+      background-color: green;  /* Başlığın arka plan rengi */
+      color: white;  /* Başlıktaki yazıların rengi */
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Öğrenci Not Tablosu</h2>
+
+  <table>
+    <tr>
+      <th>Adı</th>
+      <th>Soyadı</th>
+      <th>Notu</th>
+    </tr>
+    <tr>
+      <td>Ali</td>
+      <td>Yılmaz</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>Ayla</td>
+      <td>Kaya</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>Mehmet</td>
+      <td>Demir</td>
+      <td>74</td>
+    </tr>
+  </table>
+
+</body>
+</html>

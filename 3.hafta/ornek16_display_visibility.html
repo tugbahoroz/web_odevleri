@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>display ve visibility</title>
+  <style>
+    .kutu {
+      width: 150px;
+      height: 50px;
+      background: lightgreen;
+      margin: 10px;
+      text-align: center;
+      line-height: 50px;
+      border: 1px solid black;
+    }
+    .none {
+      display: none; /* hiç yer kaplamaz */
+    }
+    .hidden {
+      visibility: hidden; /* görünmez ama yer kaplar */
+    }
+  </style>
+</head>
+<body>
+
+  <h2>display:none ile visibility:hidden</h2>
+
+  <div class="kutu">1. Kutu</div>
+  <div class="kutu none">2. Kutu (display:none)</div>
+  <div class="kutu">3. Kutu</div>
+
+  <hr>
+
+  <div class="kutu">A. Kutu</div>
+  <div class="kutu hidden">B. Kutu (visibility:hidden)</div>
+  <div class="kutu">C. Kutu</div>
+
+</body>
+</html>

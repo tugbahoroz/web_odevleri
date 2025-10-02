@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>First Child Örnek</title>
+    <style>
+        /* İlk p elementini mavi yap */
+        p:first-child {
+            color: green;
+            font-weight: bold;
+        }
+
+        /* Her p içindeki ilk i elementini kırmızı yap */
+        p > i:first-child {
+            color: red;
+        }
+
+        /* İlk p içindeki tüm i elementlerini mavi yap */
+        p:first-child i {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <p>I am a <i>strong</i> man. I am a <i>smart</i> man.</p>
+    <p>I am a <i>brave</i> man. I am a <i>kind</i> man.</p>
+
+</body>
+</html>

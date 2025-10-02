@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Basit Crossbrowser Örnek</title>
+    <style>
+        /* Body margin ve padding sıfırlama */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* Absolute kutu sağda */
+        .absolute-box {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: #b0e0e6;
+        }
+
+        /* Float kutu sağda */
+        .float-box {
+            float:left;
+            width: 100px;
+            height: 100px;
+            background-color: #ffcccb;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Basit Örnek</h2>
+
+    <div class="container">
+        <div class="absolute-box">Absolute</div>
+        <div class="float-box">Float</div>
+        Ana içerik burası.
+    </div>
+
+</body>
+</html>
