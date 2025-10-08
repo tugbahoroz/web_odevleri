@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing page</title>
+  <link rel="stylesheet" href="landing_avocado.css">
+</head>
+
+<body>
+  <div class="glass-efect">
+    <div class="main-content"> <!-- position: relative olacak (CSS'te) -->
+      <nav>
+        <a href="#" class="logo"> <img src="avo-logo.png" alt="logo"></a>
+
+        <ul>
+          <li><a href="#" class="nav-link active" data-target="home">Ana sayfa</a></li>
+          <li><a href="#" class="nav-link" data-target="about">Hakkımızda</a></li>
+          <li><a href="#" class="nav-link" data-target="services">Hizmetler</a></li>
+        </ul>
+
+        <div>
+          <a href="#" class="btn nav-link" data-target="contact">İletişime geç</a>
+        </div>
+      </nav>
+
+      <!-- HOME -->
+      <section id="home" class="tab-content active">
+        <div class="content">
+          <h1 class="anim"> <span>Yeşilin</span> <br>Tadını keşfet</h1>
+          <p class="anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem unde recusandae delectus
+            molestias eum, debitis itaque blanditiis inventore doloremque ab!</p>
+          <a href="#" class="btn anim">Bize katıl</a>
+        </div>
+        <img src="avocado.png" alt="avocado" class="hero-img anim">
+      </section>
+
+      <!-- HAKKIMIZDA -->
+      <section id="about" class="tab-content">
+        <div class="content">
+          <h2>Hakkımızda</h2>
+          <p>Biz, doğadan gelen tazeliği sofralarınıza taşımayı amaçlayan bir ekibiz.
+            Her gün en kaliteli avokadoları özenle seçiyor, lezzet ve sağlığı bir araya getiriyoruz.
+            Yeşilin enerjisine ve doğanın gücüne inanıyoruz. Bu yüzden ürünlerimizde katkı maddesi, koruyucu ya da
+            yapay tatlandırıcı bulunmaz.
+
+            Amacımız, yalnızca bir meyve satmak değil; doğayı, sağlıklı yaşamı ve sürdürülebilir tarımı destekleyen bir
+            yaşam tarzını paylaşmak.
+            Bizimle birlikte sen de doğanın ritmine katıl, yeşilin tadını keşfet! 🌱</p>
+        </div>
+      </section>
+
+      <!-- HIZMETLER -->
+      <section id="services" class="tab-content">
+        <div class="content">
+          <h2>Hizmetler</h2>
+          <ul>
+            <li>🌱 Taze Ürün Tedariki<br>
+              Her mevsim özenle seçilmiş, doğal yöntemlerle yetiştirilen avokadoları en taze haliyle sizlere
+              ulaştırıyoruz.</li>
+            <li>💚 Sağlıklı Yaşam Danışmanlığı<br>
+              Beslenme uzmanlarımız, avokadoyu günlük öğünlerinize en doğru şekilde eklemeniz için size rehberlik eder.
+            </li>
+            <li>🚚 Hızlı ve Güvenli Teslimat<br>
+              Siparişiniz özenle paketlenir ve en kısa sürede, tazeliğini koruyacak şekilde adresinize ulaştırılır.</li>
+            <li>🌍 Sürdürülebilir Tarım Desteği<br>
+              Yerel üreticilerle iş birliği yaparak çevre dostu tarım yöntemlerini destekliyoruz.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- İLETİŞİM -->
+      <section id="contact" class="tab-content">
+        <div class="content">
+          <h2>İletişim</h2>
+          <form id="contactForm">
+            <label>İsim</label><br>
+            <input type="text" name="name"><br><br>
+            <label>E-posta</label><br>
+            <input type="email" name="email"><br><br>
+            <label>Mesaj</label><br>
+            <textarea name="message"></textarea><br><br>
+            <button class="btn" type="submit">Gönder</button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- JS: sayfa altına ekle -->
+  <script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.tab-content');
+
+    function showSection(id) {
+      // gizle
+      sections.forEach(s => s.classList.remove('active'));
+      // göster
+      const target = document.getElementById(id);
+      if (!target) return;
+      target.classList.add('active');
+
+      // nav aktif sınıfı
+      navLinks.forEach(n => n.classList.remove('active'));
+      document.querySelectorAll('.nav-link[data-target="' + id + '"]').forEach(n => n.classList.add('active'));
+
+      // anim sınıfını yeniden tetikle (isteğe bağlı: animasyonlar tekrar oynar)
+      const animEls = target.querySelectorAll('.anim');
+      animEls.forEach(el => {
+        el.classList.remove('anim');
+        void el.offsetWidth; // reflow
+        el.classList.add('anim');
+      });
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = link.dataset.target;
+        if (!target) return;
+        showSection(target);
+        history.replaceState(null, '', '#' + target); // URL hash güncelle
+      });
+    });
+
+    // sayfa hash ile açıldıysa ilgili bölümü göster
+    const start = location.hash ? location.hash.substring(1) : 'home';
+    if (document.getElementById(start)) showSection(start);
+  </script>
+</body>
+
+</html>

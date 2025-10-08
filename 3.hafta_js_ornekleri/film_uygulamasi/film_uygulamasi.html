@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Film Uygulaması</title>
+    <link rel="stylesheet" href="film_uygulamasi.css" />
+  </head>
+  <body>
+    <header>
+        <form id="form">
+            <input
+                type="text"
+                id="search"
+                placeholder="Search"
+                class="search"
+            />
+        </form>
+        <div class="filters">
+            <button id="sort-popular">Popüler</button>
+            <button id="sort-alpha">A-Z</button>
+        </div>
+    </header>
+    <main id="main"></main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-overview"></p>
+        <p><strong>Puan:</strong> <span id="modal-vote"></span></p>
+      </div>
+    </div>
+
+    <script src="film_uygulamasi.js"></script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+body {
+    height: 100vh;
+    box-sizing: border-box;
+    cursor: none;
+    /*Varsayılan fare imlecini gizler.*/
+    background-color: #222;
+}
+
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #ac0e0e;
+}
+
+.cursor-border {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    /* tıklamaları engellemez */
+    overflow: hidden;
+    /* <img> taşarsa kırpar */
+    border-radius: 50%;
+    /* yuvarlak görünüm istersen, isteğe bağlı */
+    background: transparent;
+
+}
+
+.cursor-border img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    /* resmi kırparak kapsar */
+    pointer-events: none;
+    user-select: none;}
+
+    .cursor-border,
+    .cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        /*Başlangıç noktası sol üst köşe.*/
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        /*Elemanı daire şekline getirir.*/
+        pointer-events: none;
+        /*Bu elementler tıklamayı engellemez (fare altta kalan öğeleri yine tıklayabilir).*/
+    }
