@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>XMLHttpRequest POST Örneği</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    button {
+      background-color: #0078d7;
+      color: rgb(254, 253, 253);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0e7129;
+    }
+    #demo {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>AJAX ile Veri Gönderme</h2>
+  <p>Adınızı yazın ve “Gönder”e basın:</p>
+
+  <input type="text" id="fname" placeholder="Adınızı yazın">
+  <button type="button" onclick="loadDoc()">Gönder</button>
+
+  <p id="demo"></p>
+
+  <script>
+  function loadDoc() {
+    const xhttp = new XMLHttpRequest();
+    const name = document.getElementById("fname").value.trim();
+
+    if (name === "") {
+      document.getElementById("demo").innerHTML = "Lütfen bir isim girin!";
+      return;
+    }
+
+    // Cevabı aldığımızda çalışacak kısım
+    xhttp.onload = function() {
+      document.getElementById("demo").innerHTML = 
+        this.responseText + " " + name + "! 😊";
+    };
+
+    // metin dosyasından veri çeker
+    xhttp.open("GET", "mesaj.txt");
+    xhttp.send();
+  }
+  </script>
+
+</body>
+</html>

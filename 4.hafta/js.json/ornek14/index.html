@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Fetch JSON from Server</h2>
+<p id="demo"></p>
+
+<script>
+// fetch ile JSON dosyasını çekiyoruz
+fetch('json_demo.json') // json_demo.txt yerine json_demo.json kullanalım
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json(); // JSON'u ayrıştırıyoruz
+  })
+  .then(data => {
+    // JSON verisini ekrana yazdırıyoruz
+    let text = `Name: ${data.name}<br>`;
+    text += `Age: ${data.age}<br>`;
+    text += `City: ${data.city}<br>`;
+    
+    // Eğer JSON içinde bir dizi varsa, onu da listeleyelim
+    if(data.hobbies) {
+      text += "Hobbies: " + data.hobbies.join(", ");
+    }
+
+    document.getElementById("demo").innerHTML = text;
+  })
+  .catch(error => {
+    document.getElementById("demo").innerHTML = "Error: " + error;
+  });
+</script>
+
+</body>
+</html>

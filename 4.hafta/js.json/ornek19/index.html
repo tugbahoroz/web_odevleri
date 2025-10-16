@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Get JSON Data from PHP Server</h2>
+<ul id="demo"></ul>
+
+<script>
+// limit parametresi
+const params = { limit: 5 };
+const queryString = new URLSearchParams(params).toString();
+
+// fetch ile GET isteği gönderiyoruz
+fetch("json_demo_db.php?" + queryString)
+  .then(response => {
+    if (!response.ok) throw new Error("Network response was not ok " + response.statusText);
+    return response.json();
+  })
+  .then(data => {
+    const demo = document.getElementById("demo");
+    demo.innerHTML = "";
+
+    data.forEach(item => {
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${item.name}</strong>, Age: ${item.age}`;
+      demo.appendChild(li);
+    });
+  })
+  .catch(error => {
+    document.getElementById("demo").innerHTML = "Error: " + error;
+  });
+</script>
+
+<p>Try changing the "limit" property from 5 to another number.</p>
+
+</body>
+</html>

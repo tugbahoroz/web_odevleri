@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Finding Elements with CSS Selectors</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Finding HTML Elements by CSS Selector</h2>
+
+<p class="intro">Welcome to London!</p>
+<p class="intro">Welcome to Paris!</p>
+<p class="intro">Welcome to Tokyo!</p>
+<p class="info">This one has a different class.</p>
+
+<p id="demo"></p>
+
+<script>
+$(document).ready(function() {
+  // jQuery ile p.intro seçimi
+  var jqElements = $("p.intro");
+  
+  // JavaScript ile p.intro seçimi
+  const jsElements = document.querySelectorAll("p.intro");
+  
+  // jQuery ve JS sonuçlarını birleştirerek gösterimii
+  let result = "Toplam " + jqElements.length + " adet <p class='intro'> bulundu.<br>";
+  result += "İlk paragrafın içeriği: " + jsElements[0].innerHTML;
+  
+  $("#demo").html(result);
+});
+</script>
+
+</body>
+</html>

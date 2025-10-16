@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hide and Show HTML Elements</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Hide and Show HTML Elements (JavaScript & jQuery)</h2>
+
+<p id="p1">Hello World!</p>
+<p id="p2">Hello Sweden!</p>
+<p id="p3">Hello Japan!</p>
+
+<button id="hideJS">Hide with JavaScript</button>
+<button id="hideJQ">Hide with jQuery</button>
+<button id="showAll">Show All</button>
+
+<p id="demo"></p>
+
+<script>
+$(document).ready(function() {
+  
+  // JavaScript ile gizle
+  $("#hideJS").click(function() {
+    document.getElementById("p2").style.display = "none";
+    $("#demo").text("p2 hidden using JavaScript");
+  });
+
+  // jQuery ile gizle
+  $("#hideJQ").click(function() {
+    $("#p3").hide();
+    $("#demo").text("p3 hidden using jQuery");
+  });
+
+  // Tüm paragrafları göster
+  $("#showAll").click(function() {
+    $("#p1, #p2, #p3").show();
+    $("#demo").text("All paragraphs are now visible");
+  });
+
+});
+</script>
+
+</body>
+</html>

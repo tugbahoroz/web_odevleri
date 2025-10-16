@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JSON Nesne Özellikleri ve Değerleri Arasında Döngü</h1>
+<h3><code>for...in</code> Döngüsünü Kullanma</h3>
+
+<p><b>Keys:</b> <span id="keys"></span></p>
+<p><b>Values:</b> <span id="values"></span></p>
+<p><b>Full Info:</b></p>
+<p id="demo"></p>
+
+<script>
+// JSON string oluşturma
+const myJSON = '{"name":"Emma", "age":25, "city":"Paris", "job":"Developer"}';
+const myObj = JSON.parse(myJSON);
+
+//  Sadece anahtarları alalım
+let keyText = "";
+for (const key in myObj) {
+  keyText += key + " | ";
+}
+document.getElementById("keys").innerHTML = keyText;
+
+//  Sadece değerleri alalım
+let valueText = "";
+for (const key in myObj) {
+  valueText += myObj[key] + " | ";
+}
+document.getElementById("values").innerHTML = valueText;
+
+//  Anahtar + Değer çiftlerini birlikte gösterimi
+let fullText = "";
+for (const key in myObj) {
+  fullText += key + ": " + myObj[key] + "<br>";
+}
+document.getElementById("demo").innerHTML = fullText;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Setting Text Content</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Setting Text Content (with jQuery & JavaScript)</h2>
+
+<p id="p1">Welcome to London!</p>
+<p id="p2">Welcome to Paris!</p>
+
+<button id="changeText">Change Texts</button>
+
+<script>
+$(document).ready(function() {
+  $("#changeText").click(function() {
+    // jQuery ile bir paragrafın metnini değiştir
+    $("#p1").text("Hello from jQuery!");
+
+    // JavaScript ile diğer paragrafın metnini değiştir
+    const myElement = document.getElementById("p2");
+    myElement.textContent = "Hello from JavaScript!";
+  });
+});
+</script>
+
+</body>
+</html>

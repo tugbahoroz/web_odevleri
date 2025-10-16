@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Get Text Content</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Get Text Content (with jQuery & JavaScript)</h2>
+
+<p id="p1">Hello from London!</p>
+<p id="p2">Hello from Paris!</p>
+<p id="p3">Hello from Rome!</p>
+
+<button id="getText">Get Texts</button>
+
+<p id="result"></p>
+
+<script>
+$(document).ready(function() {
+  $("#getText").click(function() {
+    // jQuery ile bir paragrafın metnini al
+    var text1 = $("#p1").text();
+
+    // JavaScript ile başka bir paragrafın metnini al
+    const text2 = document.getElementById("p2").textContent;
+
+    // Sonuçları ekranda göster
+    $("#result").html(
+      "jQuery'den gelen metin: " + text1 + "<br>" +
+      "JavaScript'ten gelen metin: " + text2
+    );
+  });
+});
+</script>
+
+</body>
+</html>

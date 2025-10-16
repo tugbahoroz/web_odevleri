@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+  <h2>Bugünkü Hava Durumu</h2>
+  <p id="weather">Hava durumunu görmek için butona tıkla ☁️</p>
+  <button type="button" onclick="loadDoc()">Bilgiyi Göster</button>
+</div>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest(); //  XMLHttpRequest nesnesi oluşturuluyor
+
+  xhttp.onload = function() { // Cevap geldiğinde çalışır
+    // responseText ile gelen veriyi ekrana yaz
+    document.getElementById("weather").innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "weather.txt");
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class Adına Göre HTML Öğelerini Bulma</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    .highlight {
+      color: white;
+      background-color: teal;
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Class Adına Göre HTML Öğelerini Bulma (JavaScript + jQuery)</h2>
+
+<p class="intro">Hello World!</p>
+<p class="intro">Hello Sweden!</p>
+<p class="intro">Hello Japan!</p>
+
+<button id="btnJS">JavaScript ile Göster</button>
+<button id="btnJQ">jQuery ile Göster</button>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("btnJS").addEventListener("click", function() {
+  const elements = document.getElementsByClassName("intro");
+  let text = "";
+  for (let i = 0; i < elements.length; i++) {
+    text += (i + 1) + ". " + elements[i].innerHTML + "<br>";
+  }
+  document.getElementById("demo").innerHTML =
+    "💡 JavaScript ile class='intro' içeren elemanlar:<br><br>" + text;
+});
+
+// jquery kısmı
+$(document).ready(function() {
+  $("#btnJQ").click(function() {
+    const myElements = $(".intro");
+    let text = "";
+    myElements.each(function(index) {
+      text += (index + 1) + ". " + $(this).text() + "<br>";
+    });
+
+    // Sonuçları gösteren ksıım
+    $("#demo").html("✨ jQuery ile class='intro' içeren elemanlar:<br><br>" + text);
+
+    // Renk vurgusu eklemw
+    $(".intro").addClass("highlight");
+  });
+});
+</script>
+
+</body>
+</html>

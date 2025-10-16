@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Element Seçimi</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>jQuery ile HTML Öğelerini Seçme ve Değiştirme</h2>
+
+<p id="id01">Bu bir paragraf (id = id01)</p>
+<p class="intro">Bu bir giriş paragrafıdır (class = intro)</p>
+<p>Bu normal bir paragraf.</p>
+
+<button id="btn1">ID ile Seç</button>
+<button id="btn2">Class ile Seç</button>
+<button id="btn3">Etiket ile Seç</button>
+
+<p id="demo"></p>
+
+<script>
+$(document).ready(function() {
+
+  // 1️⃣ ID ile seçme
+  $("#btn1").click(function() {
+    var text = $("#id01").text();
+    $("#demo").text("ID ile seçilen paragrafın içeriği: " + text);
+  });
+
+  // 2️⃣ Class ile seçme
+  $("#btn2").click(function() {
+    var text = $(".intro").text();
+    $("#demo").text("Class ile seçilen paragrafın içeriği: " + text);
+  });
+
+  // 3️⃣ Etiket ile seçme
+  $("#btn3").click(function() {
+    var text = $("p").first().text();
+    $("#demo").text("İlk <p> etiketinin içeriği: " + text);
+  });
+
+});
+</script>
+
+</body>
+</html>

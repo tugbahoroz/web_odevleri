@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Set HTML Content</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    .highlight {
+      background-color: #f0e68c;
+      padding: 5px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Set HTML Content (JavaScript & jQuery)</h2>
+
+<div id="div1"><p>Hello London!</p></div>
+<div id="div2"><p>Hello Paris!</p></div>
+
+<button id="changeHTML">Change HTML Content</button>
+
+<p id="demo"></p>
+
+<script>
+$(document).ready(function() {
+
+  $("#changeHTML").click(function() {
+    // JavaScript ile div1'in HTML içeriğini al
+    const oldHTML = document.getElementById("div1").innerHTML;
+
+    // jQuery ile div2'nin HTML içeriğini değiştir
+    $("#div2").html("<p class='highlight'>Hello from jQuery!</p>");
+
+    // Sonuçları göster
+    $("#demo").html(
+      "div1'in eski içeriği (JS ile alındı): " + oldHTML + "<br>" +
+      "div2'nin yeni içeriği (jQuery ile ayarlandı): " + $("#div2").html()
+    );
+  });
+
+});
+</script>
+
+</body>
+</html>

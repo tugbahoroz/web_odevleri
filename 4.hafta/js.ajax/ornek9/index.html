@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Sayfa Bilgisi Görüntüleyici</h2>
+<p>Bu örnek, bir isteğin tüm <strong>HTTP başlıklarını (headers)</strong> gösterir.</p>
+
+<button type="button" onclick="loadHeaders()">Başlık Bilgilerini Göster</button>
+
+<pre id="demo" style="background-color:#f4f4f4; padding:10px; border:1px solid #ccc;"></pre>
+
+<script>
+function loadHeaders() {
+  const xhttp = new XMLHttpRequest(); 
+
+  xhttp.onload = function() {
+    //Tüm header bilgilerini getirir (sunucunun cevabındaki meta bilgiler)
+    const headers = this.getAllResponseHeaders();
+    
+    // Sayfaya yazdır
+    document.getElementById("demo").innerHTML = "📄 Gelen Header Bilgileri:\n\n" + headers;
+  }
+
+  xhttp.open("GET", "info.txt");
+  xhttp.send(); // 
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JSON ve Literallerden Diziler Oluşturma</h1>
+<h3>JSON.parse() ile Array Literal'ı Karşılaştırımı</h3>
+
+<p><b>Array from JSON:</b> <span id="fromJSON"></span></p>
+<p><b>Array from Literal:</b> <span id="fromLiteral"></span></p>
+<p><b>Combined Result:</b> <span id="combined"></span></p>
+
+<script>
+//  JSON string olarak tanımlama ve diziye dönüştürme
+const carsJSON = '["Tesla", "BMW", "Fiat", "Audi"]';
+const carsFromJSON = JSON.parse(carsJSON);
+
+//  Doğrudan JavaScript literal olarak tanımlama
+const carsLiteral = ["Ford", "Mercedes", "Toyota", "Honda"];
+
+//  Sonuçları ekrana yazdırma
+document.getElementById("fromJSON").innerHTML = carsFromJSON.join(" | ");
+document.getElementById("fromLiteral").innerHTML = carsLiteral.join(" | ");
+
+//  İki diziyi birleştirme
+const combinedCars = carsFromJSON.concat(carsLiteral);
+
+document.getElementById("combined").innerHTML = combinedCars.join(" 🚘 ");
+</script>
+
+</body>
+</html>

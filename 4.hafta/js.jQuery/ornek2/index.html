@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript ve jQuery ile Element Bulma</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<h2>JavaScript ve jQuery Kullanarak Etiketle Öğeleri Bulma</h2>
+
+<p>Merhaba Dünya!</p>
+<p>Merhaba İsveç!</p>
+<p>Merhaba Japonya!</p>
+
+<button id="showTexts">Tüm Paragrafları Göster</button>
+<button id="highlight">Son Paragrafı Renklendir</button>
+
+<p id="demo"></p>
+
+<script>
+// --- Klasik JavaScript yöntemi ---
+const jsElements = document.getElementsByTagName("p");
+
+// İlk paragrafın metnini klasik yöntemle yazdıralım
+document.getElementById("demo").innerHTML =
+  "JavaScript ile bulunan ilk paragraf: " + jsElements[0].innerHTML;
+
+// --- jQuery yöntemi ---
+$(document).ready(function() {
+
+  // Tüm <p> etiketlerini al
+  var jqElements = $("p");
+
+  // 1️⃣ Butona tıklanınca tüm paragrafları sırayla göster
+  $("#showTexts").click(function() {
+    let textList = "";
+    jqElements.each(function(index) {
+      textList += (index + 1) + ". " + $(this).text() + "<br>";
+    });
+    $("#demo").html("jQuery ile bulunan tüm paragraflar:<br><br>" + textList);
+  });
+
+  // 2️⃣ Son paragrafın rengini değiştir
+  $("#highlight").click(function() {
+    $("p").last().css("color", "blue");
+  });
+});
+</script>
+
+</body>
+</html>

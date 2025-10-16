@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX Kullanıcı Listesi</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #demo {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>AJAX ile Tablo Yükleme Örneği</h2>
+  <p>Butona tıkladığında tablo yüklenecektir.</p>
+  <button type="button" onclick="loadDoc()">Tabloyu Göster</button>
+
+  <div id="demo"></div>
+
+  <script>
+    function loadDoc() {
+      const xhttp = new XMLHttpRequest(); //İstek nesnesi oluştur
+      xhttp.onload = function() {          // Cevap geldiğinde yapılacaklar
+        document.getElementById("demo").innerHTML = this.responseText;
+      }
+      xhttp.open("GET", "tablo.html");     //  tablo.html dosyasını iste
+      xhttp.send();                        //  isteği gönder
+    }
+  </script>
+
+</body>
+</html>

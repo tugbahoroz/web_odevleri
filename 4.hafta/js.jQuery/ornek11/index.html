@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Change Style of HTML Element</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    #demo {
+      font-size: 20px;
+      color: black;
+      transition: all 0.5s;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Change Style of an HTML Element (JavaScript & jQuery)</h2>
+
+<p id="demo">This text will change style.</p>
+
+<button id="changeJS">Change Style using JavaScript</button>
+<button id="changeJQ">Change Style using jQuery</button>
+
+<script>
+$(document).ready(function() {
+
+  // JavaScript ile stil değiştirme
+  $("#changeJS").click(function() {
+    const element = document.getElementById("demo");
+    element.style.fontSize = "30px";
+    element.style.color = "blue";
+    element.style.fontWeight = "bold";
+  });
+
+  // jQuery ile stil değiştirme
+  $("#changeJQ").click(function() {
+    $("#demo").css({
+      "font-size": "40px",
+      "color": "green",
+      "font-style": "italic"
+    });
+  });
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON kullanarak sunucuya bir JavaScript nesnesi gönderimi ve POST'u alma</h2>
+
+<button onclick="sendData()">Send Data</button>
+
+<script>
+function sendData() {
+    // Gönderilecek nesne
+    const user = {
+        name: "Alice",
+        age: 25,
+        city: "London",
+        hobbies: ["Reading", "Traveling", "Coding"]
+    };
+
+    // JSON string'e çeviriyoruz
+    const userJSON = JSON.stringify(user);
+
+    // fetch ile POST isteği gönderiyoruz
+    fetch("demo_json.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: userJSON
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert("Server response: " + data);
+    })
+    .catch(error => console.error("Error:", error));
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Dosya Bilgisi Görüntüleyici</h2>
+<p>Butona basarak bir dosyanın HTTP header bilgilerini görebilirsiniz:</p>
+
+<button type="button" onclick="loadHeaders()">Bilgileri Göster</button>
+
+<p><strong>Son değişiklik tarihi:</strong> <span id="lastModified"></span></p>
+<p><strong>İçerik türü:</strong> <span id="contentType"></span></p>
+<p><strong>Dosya boyutu:</strong> <span id="contentLength"></span></p>
+
+<script>
+function loadHeaders() {
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.onload = function() {
+    //  Belirli header bilgilerini al ve sayfada göster
+    document.getElementById("lastModified").innerHTML = xhttp.getResponseHeader("Last-Modified");
+    document.getElementById("contentType").innerHTML = xhttp.getResponseHeader("Content-Type");
+    document.getElementById("contentLength").innerHTML = xhttp.getResponseHeader("Content-Length");
+  }
+
+  
+  xhttp.open("GET", "ajax_info.txt");
+  xhttp.send(); 
+}
+</script>
+
+</body>
+</html>

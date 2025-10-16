@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+  <BOOK>
+    <TITLE>Küçük Prens</TITLE>
+    <AUTHOR>Antoine de Saint-Exupéry</AUTHOR>
+    <PRICE>85 TL</PRICE>
+  </BOOK>
+  <BOOK>
+    <TITLE>Simyacı</TITLE>
+    <AUTHOR>Paulo Coelho</AUTHOR>
+    <PRICE>120 TL</PRICE>
+  </BOOK>
+  <BOOK>
+    <TITLE>1984</TITLE>
+    <AUTHOR>George Orwell</AUTHOR>
+    <PRICE>150 TL</PRICE>
+  </BOOK>
+</CATALOG>

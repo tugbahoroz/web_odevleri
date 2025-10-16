@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Nesne Özelliklerine Erişim</h1>
+<h3>Nokta Gösterimi ve Parantez Gösterimi Kullanımı</h3>
+
+<p><b>Dot Notation:</b> <span id="demo1"></span></p>
+<p><b>Bracket Notation:</b> <span id="demo2"></span></p>
+<p><b>Full Description:</b> <span id="demo3"></span></p>
+
+<script>
+// JSON string tanımlama
+const personJSON = '{"name":"Emma", "age":27, "city":"London", "job":"Designer"}';
+
+// JSON string'i nesneye çevirme
+const personObj = JSON.parse(personJSON);
+
+//  Dot Notation ile erişim
+const nameDot = personObj.name; // Emma
+
+//  Bracket Notation ile erişim
+const cityBracket = personObj["city"]; // London
+
+const description = nameDot + " is a " + personObj.job + " living in " + cityBracket + ".";
+
+document.getElementById("demo1").innerHTML = nameDot;
+document.getElementById("demo2").innerHTML = cityBracket;
+document.getElementById("demo3").innerHTML = description;
+</script>
+
+</body>
+</html>

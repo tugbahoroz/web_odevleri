@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>XMLHttpRequest - Günün Sözü</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 60px;
+    }
+    #demo {
+      border: 2px solid #0078d7;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      background-color: #f0f8ff;
+      font-size: 18px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #0078d7;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005ea6;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📜 Günün Sözü</h2>
+
+  <p id="demo">Butona basarak günün sözünü öğren!</p>
+
+  <button type="button" onclick="loadDoc()">Göster</button>
+
+  <script>
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest(); // Yeni istek nesnesi oluşturuluyor
+      xhttp.open("GET", "bilgi.txt", false); // bilgi.txt dosyasına senkron GET isteği gönderilecek
+      xhttp.send(); // İstek gönderiliyor
+      document.getElementById("demo").innerHTML = xhttp.responseText; // Dönen içerik demo alanına yazılıyor
+    }
+  </script>
+
+</body>
+</html>

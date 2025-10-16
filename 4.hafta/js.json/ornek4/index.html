@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON Tarih Dizesini JavaScript Tarih Nesnesine Dönüştürme</h2>
+<p id="demo"></p>
+
+<script>
+const jsonText = '{"employee":"Elif", "hireDate":"2019-05-22", "department":"Finance"}';
+
+const empObj = JSON.parse(jsonText);
+
+empObj.hireDate = new Date(empObj.hireDate);
+
+document.getElementById("demo").innerHTML =
+empObj.employee + " (" + empObj.department + " departmanı) işe başlama tarihi: " + empObj.hireDate;
+</script>
+
+</body>
+</html>

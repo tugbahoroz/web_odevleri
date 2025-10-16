@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dinamik HTML Tablosu</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #888;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        #message {
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Dinamik HTML Tablosu</h2>
+    <p>Aşağıdaki menüden bir tablo türü seçin:</p>
+
+    <select id="tableSelect">
+        <option value="">-- Tablo Seçin --</option>
+        <option value="customers">Müşteriler</option>
+        <option value="products">Ürünler</option>
+        <option value="suppliers">Tedarikçiler</option>
+    </select>
+
+    <div id="message"></div>
+    <div id="tableContainer"></div>
+
+    <script>
+        document.getElementById("tableSelect").addEventListener("change", function () {
+            const selected = this.value;
+            const message = document.getElementById("message");
+            const tableContainer = document.getElementById("tableContainer");
+
+            if (!selected) {
+                tableContainer.innerHTML = "";
+                message.textContent = "Lütfen bir tablo seçin.";
+                return;
+            }
+
+            message.textContent = "Veriler yükleniyor...";
+            tableContainer.innerHTML = "";
+
+            // PHP’ye gönderilecek JSON parametresi
+            const params = { table: selected, limit: 10 };
+
+            fetch("json_demo_html_table.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(params)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (!Array.isArray(data) || data.length === 0) {
+                        message.textContent = "Kayıt bulunamadı.";
+                        return;
+                    }
+
+                    message.textContent = "";
+
+                    const headers = Object.keys(data[0]);
+                    let table = "<table><tr>";
+                    headers.forEach(h => table += `<th>${h.toUpperCase()}</th>`);
+                    table += "</tr>";
+
+                    data.forEach(row => {
+                        table += "<tr>";
+                        headers.forEach(h => table += `<td>${row[h]}</td>`);
+                        table += "</tr>";
+                    });
+                    table += "</table>";
+
+                    tableContainer.innerHTML = table;
+                })
+
+                .catch(err => {
+                    message.textContent = "Bir hata oluştu: " + err;
+                });
+
+        });
+        xmlhttp.open("POST", "json_demo_html_table.php", true);
+    </script>
+
+</body>
+
+</html>

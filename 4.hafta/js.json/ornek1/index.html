@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create Object from JSON String (Students Example)</h2>
+
+<p id="demo"></p>
+
+<script>
+let jsonData = '{"students":[' +
+'{"firstName":"Ayşe","lastName":"Yılmaz"},' +
+'{"firstName":"Mehmet","lastName":"Kaya"},' +
+'{"firstName":"Zeynep","lastName":"Demir"}]}';
+
+const dataObj = JSON.parse(jsonData);
+
+document.getElementById("demo").innerHTML =
+"Seçilen öğrenci: " + dataObj.students[2].firstName + " " + dataObj.students[2].lastName;
+</script>
+
+</body>
+</html>

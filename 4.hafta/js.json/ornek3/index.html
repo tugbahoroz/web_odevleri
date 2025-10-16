@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript JSON Parse Ornegi</h1>
+<h2>JSON Nesnesini Ayrıştırma</h2>
+
+<p id="demo"></p>
+
+<script>
+const jsonText = '{"name":"Ayşe", "age":27, "city":"Istanbul", "cars":["BMW", "Toyota", "Tesla"]}';
+
+const userObj = JSON.parse(jsonText);
+
+let result = "Kullanıcı Bilgisi: " + userObj.name + " (" + userObj.age + " yaşında), " + userObj.city + " şehrinde yaşıyor.<br>";
+result += "Arabaları: " + userObj.cars.join(", ");
+
+// HTML içine yazdır
+document.getElementById("demo").innerHTML = result;
+</script>
+
+</body>
+</html>

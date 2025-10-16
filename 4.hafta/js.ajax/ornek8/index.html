@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Kitap Kataloğu (XMLHttpRequest + responseXML)</h2>
+<button type="button" onclick="loadBooks()">Kitapları Göster</button>
+<div id="demo"></div>
+
+<script>
+function loadBooks() {
+  const xhttp = new XMLHttpRequest(); 
+
+  xhttp.onload = function() { // Veri başarıyla yüklendiğinde çalışır
+    const xmlDoc = this.responseXML; //  XML verisini al
+    const books = xmlDoc.getElementsByTagName("BOOK"); // <BOOK> etiketlerini bul
+
+    let table = "<table border='1' cellpadding='6'><tr><th>Başlık</th><th>Yazar</th><th>Fiyat</th></tr>";
+
+    // XML içindeki her <BOOK> için bilgileri al
+    for (let i = 0; i < books.length; i++) {
+      const title = books[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+      const author = books[i].getElementsByTagName("AUTHOR")[0].childNodes[0].nodeValue;
+      const price = books[i].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue;
+
+      table += `<tr><td>${title}</td><td>${author}</td><td>${price}</td></tr>`;
+    }
+
+    table += "</table>";
+
+    document.getElementById("demo").innerHTML = table; // HTML'e ekle
+  }
+
+  xhttp.open("GET", "books.xml");
+  xhttp.send(); 
+}
+</script>
+
+</body>
+</html>

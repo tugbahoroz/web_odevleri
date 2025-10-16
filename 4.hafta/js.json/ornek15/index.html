@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Fetch a JSON Array from Server</h2>
+<p>Content written as a JSON array will be converted into a JavaScript array.</p>
+<ul id="demo"></ul>
+
+<script>
+// fetch ile JSON dizisini çekiyoruz
+fetch('json_demo_array.json') // json_demo_array.txt yerine .json kullanalım
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json(); // JSON dizisini ayrıştırıyoruz
+  })
+  .then(data => {
+    // data bir dizi olacak
+    const demo = document.getElementById("demo");
+    demo.innerHTML = ""; 
+
+    data.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      demo.appendChild(li);
+    });
+  })
+  .catch(error => {
+    document.getElementById("demo").innerHTML = "Error: " + error;
+  });
+</script>
+
+</body>
+</html>

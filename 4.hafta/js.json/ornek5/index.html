@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON içindeki fonksiyonları dönüştürme</h2>
+<p id="demo"></p>
+
+<script>
+const jsonText = `{
+  "name": "Alice",
+  "greet": "function() { return 'Merhaba, ben ' + this.name + '!'; }",
+  "sum": "function(a, b) { return a + b; }"
+}`;
+
+const person = JSON.parse(jsonText);
+
+for (let key in person) {
+  if (typeof person[key] === "string" && person[key].startsWith("function")) {
+    person[key] = eval("(" + person[key] + ")");
+  }
+}
+
+const greeting = person.greet();
+const result = person.sum(5, 7);
+
+document.getElementById("demo").innerHTML = `
+  ${greeting}<br>
+  Toplama sonucu: ${result}
+`;
+</script>
+
+</body>
+</html>

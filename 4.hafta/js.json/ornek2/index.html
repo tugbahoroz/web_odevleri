@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Object Access Examples</h1>
+
+<!-- 1. Örnek: Nokta ile erişim -->
+<h2>1. Access a JavaScript Object (dot notation)</h2>
+<p id="demo1"></p>
+
+<!-- 2. Örnek: Köşeli parantez ile erişim -->
+<h2>2. Access a JavaScript Object (bracket notation)</h2>
+<p id="demo2"></p>
+
+<!-- 3. Örnek: Nokta ile değiştirme -->
+<h2>3. Modify a JavaScript Object (dot notation)</h2>
+<p id="demo3"></p>
+
+<!-- 4. Örnek: Köşeli parantez ile değiştirme -->
+<h2>4. Modify a JavaScript Object (bracket notation)</h2>
+<p id="demo4"></p>
+
+<script>
+// 1. Örnek - Nokta ile erişim
+const student1 = { name: "Elif", age: 22, department: "Computer Science" };
+document.getElementById("demo1").innerHTML = "Öğrenci Adı: " + student1.name;
+
+// 2. Örnek - Köşeli parantez ile erişim
+const student2 = { name: "Can", age: 25, department: "Design" };
+document.getElementById("demo2").innerHTML = "Öğrenci Adı: " + student2["name"];
+
+// 3. Örnek - Nokta ile değiştirme
+const student3 = { name: "Deniz", age: 20, department: "Mathematics" };
+student3.name = "Mert";
+document.getElementById("demo3").innerHTML = "Yeni Öğrenci Adı: " + student3.name;
+
+// 4. Örnek - Köşeli parantez ile değiştirme
+const student4 = { name: "Seda", age: 24, department: "Biology" };
+student4["name"] = "Melis";
+document.getElementById("demo4").innerHTML = "Yeni Öğrenci Adı: " + student4.name;
+</script>
+
+</body>
+</html>

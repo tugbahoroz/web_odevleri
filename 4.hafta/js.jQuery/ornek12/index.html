@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Remove HTML Elements</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    p {
+      margin: 5px 0;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Remove HTML Elements (JavaScript & jQuery)</h2>
+
+<p id="p1">Hello World!</p>
+<p id="p2">Hello Sweden!</p>
+<p id="p3">Hello Japan!</p>
+
+<button id="removeJS">Remove p2 using JavaScript</button>
+<button id="removeJQ">Remove p3 using jQuery</button>
+
+<p id="demo"></p>
+
+<script>
+$(document).ready(function() {
+
+  // JavaScript ile kaldır
+  $("#removeJS").click(function() {
+    const element = document.getElementById("p2");
+    if (element) {
+      element.remove();
+      $("#demo").text("p2 removed using JavaScript");
+    } else {
+      $("#demo").text("p2 has already been removed");
+    }
+  });
+
+  // jQuery ile kaldır
+  $("#removeJQ").click(function() {
+    if ($("#p3").length) {
+      $("#p3").remove();
+      $("#demo").text("p3 removed using jQuery");
+    } else {
+      $("#demo").text("p3 has already been removed");
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>

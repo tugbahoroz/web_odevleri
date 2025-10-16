@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Kitap Önerisi</h2>
+<h3>Bir harf veya kelime yazın:</h3>
+
+<p>Öneriler: <span id="suggestions"></span></p>
+<p>Arama: <input type="text" id="bookInput" onkeyup="showBooks(this.value)"></p>
+
+<script>
+function showBooks(str) {
+  if (str.length == 0) {
+    document.getElementById("suggestions").innerHTML = "";
+    return;
+  }
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("suggestions").innerHTML = this.responseText;
+  }
+
+  xhttp.open("GET", "getBooks.php?q=" + encodeURIComponent(str), true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

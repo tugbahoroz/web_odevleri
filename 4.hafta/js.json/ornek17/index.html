@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Get JSON Array from PHP Server</h2>
+<ul id="demo"></ul>
+
+<script>
+// fetch ile PHP dosyasından JSON veriyi çekiyoruz
+fetch("demo_file.php")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok " + response.statusText);
+    }
+    return response.json(); // JSON'u ayrıştırıyoruz
+  })
+  .then(data => {
+    const demo = document.getElementById("demo");
+    demo.innerHTML = ""; // önce listeyi temizle
+
+    // data bir dizi olduğu için forEach ile dolaşıyoruz
+    data.forEach(user => {
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${user.name}</strong>, Age: ${user.age}, City: ${user.city}, Hobbies: ${user.hobbies.join(", ")}`;
+      demo.appendChild(li);
+    });
+  })
+  .catch(error => {
+    document.getElementById("demo").innerHTML = "Error: " + error;
+  });
+</script>
+
+</body>
+</html>

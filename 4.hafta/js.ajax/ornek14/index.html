@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 6px;
+}
+th {
+  background-color: #f0f0f0;
+}
+</style>
+</head>
+<body>
+
+<h2>Customer Information (AJAX + PHP + MySQL)</h2>
+
+<form>
+  <label for="customers">Select a customer:</label>
+  <select id="customers" name="customers" onchange="showCustomer(this.value)">
+    <option value="">-- Choose one --</option>
+    <option value="ALFKI">Alfreds Futterkiste</option>
+    <option value="NORTS">North/South</option>
+    <option value="WOLZA">Wolski Zajazd</option>
+  </select>
+</form>
+
+<br>
+<div id="txtHint">Customer info will be displayed here...</div>
+
+<script>
+function showCustomer(customerID) {
+  if (customerID === "") {
+    document.getElementById("txtHint").innerHTML = "Please select a customer.";
+    return;
+  }
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("txtHint").innerHTML = this.responseText;
+  }
+
+  // PHP dosyasına GET isteği gönderiyoruz
+  xhttp.open("GET", "getcustomer.php?q=" + customerID);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

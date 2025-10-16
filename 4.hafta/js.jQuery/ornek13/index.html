@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Get Parent HTML Element</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Get Parent HTML Element (JavaScript & jQuery)</h2>
+
+<div id="container1">
+  <p id="p1">Hello World!</p>
+</div>
+
+<div id="container2">
+  <p id="p2">Hello Sweden!</p>
+</div>
+
+<div id="container3">
+  <p id="p3">Hello Japan!</p>
+</div>
+
+<button id="parentJS">Get Parent of p2 using JavaScript</button>
+<button id="parentJQ">Get Parent of p3 using jQuery</button>
+
+<p id="demo"></p>
+
+<script>
+$(document).ready(function() {
+
+  // JavaScript ile üst öğeyi al
+  $("#parentJS").click(function() {
+    const parentName = document.getElementById("p2").parentNode.nodeName;
+    $("#demo").html("Parent of p2 using JavaScript: <strong>" + parentName + "</strong>");
+  });
+
+  // jQuery ile üst öğeyi al
+  $("#parentJQ").click(function() {
+    const parentName = $("#p3").parent().prop("nodeName");
+    $("#demo").html("Parent of p3 using jQuery: <strong>" + parentName + "</strong>");
+  });
+
+});
+</script>
+
+</body>
+</html>

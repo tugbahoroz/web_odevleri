@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript JSON</h1>
+<h2>Bir JavaScript Nesnesini JSON Dizesine Dönüştürme</h2>
+<p id="demo"></p>
+
+<script>
+const student = {
+  name: "Emma",
+  age: 22,
+  city: "London",
+  major: "Computer Science"
+};
+
+const studentJSON = JSON.stringify(student);
+
+document.getElementById("demo").innerHTML = studentJSON;
+</script>
+
+</body>
+</html>

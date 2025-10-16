@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Show HTML Elements</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Show HTML Elements (JavaScript & jQuery)</h2>
+
+<p id="p1" style="display:none">Hello World!</p>
+<p id="p2" style="display:none">Hello Sweden!</p>
+<p id="p3" style="display:none">Hello Japan!</p>
+
+<button id="showJS">Show p2 using JavaScript</button>
+<button id="showJQ">Show p3 using jQuery</button>
+<button id="showAll">Show All Paragraphs</button>
+
+<p id="demo"></p>
+
+<script>
+$(document).ready(function() {
+
+  // JavaScript ile göster
+  $("#showJS").click(function() {
+    document.getElementById("p2").style.display = "";
+    $("#demo").text("p2 is now visible using JavaScript");
+  });
+
+  // jQuery ile göster
+  $("#showJQ").click(function() {
+    $("#p3").show();
+    $("#demo").text("p3 is now visible using jQuery");
+  });
+
+  // Tüm paragrafları göster
+  $("#showAll").click(function() {
+    $("#p1, #p2, #p3").show();
+    $("#demo").text("All paragraphs are now visible");
+  });
+
+});
+</script>
+
+</body>
+</html>

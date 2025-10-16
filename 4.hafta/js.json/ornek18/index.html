@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Get JSON Array from PHP</h2>
+<ul id="demo"></ul>
+
+<script>
+fetch("demo_array.php")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok " + response.statusText);
+    }
+    return response.json(); // JSON'u ayrıştır
+  })
+  .then(data => {
+    const demo = document.getElementById("demo");
+    demo.innerHTML = ""; // önce temizle
+
+    data.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      demo.appendChild(li);
+    });
+  })
+  .catch(error => {
+    document.getElementById("demo").innerHTML = "Error: " + error;
+  });
+</script>
+
+</body>
+</html>

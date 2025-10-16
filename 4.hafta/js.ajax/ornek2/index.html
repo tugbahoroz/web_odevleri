@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+  <h2>The XMLHttpRequest Object</h2>
+  <button type="button" onclick="loadDoc()" id="myBtn">Change Content</button>
+</div>
+
+<script>
+let tabloAcik = false; // tablo açık mı kapalı mı bilgisini tutacağız
+
+function loadDoc() {
+  const demo = document.getElementById("demo");
+  const btn = document.getElementById("myBtn");
+
+  if (!tabloAcik) {
+    // tablo kapalıysa aç
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        demo.innerHTML = this.responseText + 
+          '<br><button type="button" onclick="loadDoc()" id="myBtn">Hide Table</button>';
+        tabloAcik = true; // tablo artık açık
+      }
+    };
+    xhttp.open("GET", "tablo.html");
+    xhttp.send();
+  } else {
+    // tablo açıksa kapat
+    demo.innerHTML = `
+      <h2>The XMLHttpRequest Object</h2>
+      <button type="button" onclick="loadDoc()" id="myBtn">Show Table</button>
+    `;
+    tabloAcik = false; // tablo artık kapalı
+  }
+}
+</script>
+
+</body>
+</html>
