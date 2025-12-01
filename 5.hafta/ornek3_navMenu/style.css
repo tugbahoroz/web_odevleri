@@ -1,0 +1,32 @@
+#navbar #holder{
+    height: 64px;
+    border-bottom: 1px solid #000; /*menünün altına siyah çizgi çektik*/
+}
+
+#navbar #holder ul { 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar #holder ul li a{
+    text-decoration: none;
+    float: left;
+    margin-right: 5px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    color: #000;
+    border: 1px solid #000;
+    border-bottom:none;
+    padding: 20px; /*menu öğelerini büyüttü */
+    width: 75px;
+    text-align: center; /*yazıları her menü bloğunun içinde ortaladı*/
+    display:block;
+    background: #69F;
+}
+
+#navbar #holder ul li a:hover {
+    background: #F90;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #000;
+}
+

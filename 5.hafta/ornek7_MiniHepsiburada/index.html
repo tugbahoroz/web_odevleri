@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<title>Mini Hepsiburada</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 0; display: flex; }
+
+   
+    .side-menu { width: 200px; background:#f5f5f5; padding:0; margin:0; list-style:none; }
+    .side-menu li { padding: 5px; border-bottom:1px solid #ddd; position:relative; cursor:pointer; }
+    .side-menu li:hover { background:#ffebc2; }
+
+    .submenu { 
+        display:none; list-style:none; position:absolute; left:200px; top:0; 
+        background:white; border:1px solid #ccc; width:160px; padding:0; 
+    }
+    .submenu li { padding:3px; border-bottom:1px solid #eee; }
+    .side-menu li:hover .submenu { display:block; }
+
+    .image-area { padding:20px; text-align:center; width:100%; }
+
+    #bigImage { width:600px; height:500px; border:1px solid #ccc; margin-bottom:15px; object-fit:cover; }
+
+    .thumbs img { width:100px; height:100px; margin:5px; border:2px solid transparent; cursor:pointer; object-fit:cover; }
+    .thumbs img:hover { border-color:orange; }
+
+   
+    .tabs { display:flex; background:#f1f1f1; cursor:pointer; }
+    .tabs div { padding:10px 20px; }
+    .tabs div:hover { background:#ddd; }
+    .tabs .active { background:#ddd; font-weight:bold; }
+
+    .tab-content { display:none; padding:20px; border:1px solid #ddd; }
+    .tab-content.active { display:block; }
+</style>
+</head>
+<body>
+
+<ul class="side-menu">
+    <li>Spor / Outdoor
+        <ul class="submenu">
+            <li>Koşu</li>
+            <li>Bisiklet</li>
+            <li>Fitness</li>
+        </ul>
+    </li>
+    <li>Elektronik
+        <ul class="submenu">
+            <li>Telefon</li>
+            <li>Bilgisayar</li>
+            <li>Televizyon</li>
+        </ul>
+    </li>
+    <li>Giyim / Ayakkabı
+        <ul class="submenu">
+            <li>Erkek Giyim</li>
+            <li>Kadın Giyim</li>
+            <li>Ayakkabı</li>
+        </ul>
+    </li>
+</ul>
+
+<div class="image-area">
+
+    <img id="bigImage" src="ana_gorsel.jpg">
+
+    <div class="thumbs">
+        <img src="ayakkabi.webp" onmouseover="document.getElementById('bigImage').src=this.src">
+        <img src="elbise.jpg" onmouseover="document.getElementById('bigImage').src=this.src">
+        <img src="bebek_oto_koltugu.jpg" onmouseover="document.getElementById('bigImage').src=this.src">
+    </div>
+
+  
+    <div class="tabs">
+        <div class="active" onclick="openTab(0)">Çok Satanlar</div>
+        <div onclick="openTab(1)">Yeni Eklenenler</div>
+        <div onclick="openTab(2)">İndirimdekiler</div>
+    </div>
+
+    <div class="tab-content active">Melisa Kadın Elbise - 329 TL + KDV</div>
+    <div class="tab-content">Onitsuka Tiger Ayakkabı - 1250 TL + KDV</div>
+    <div class="tab-content">Oto Koltuğu - 899 TL + KDV</div>
+</div>
+
+<script>
+function openTab(n) {
+    var tabs = document.querySelectorAll('.tabs div');
+    var contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === n);
+        contents[i].classList.toggle('active', i === n);
+    });
+}
+</script>
+
+</body>
+</html>

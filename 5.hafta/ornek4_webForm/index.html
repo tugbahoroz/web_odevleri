@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS and Forms</title>
+    <script type="text/javascript">
+        function displayNameEmail(form) {
+            alert('Hey '+ form.name.value + ' Your email address is ' + form.email.value);
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" name="form1" method="post" action="">
+        <table width="50%" border="0">
+            <tr>
+                <td>Full Name:</td>
+                <td><label>
+                    <input type="text" name="name" id="name" />
+                </label></td>
+            </tr>
+            <tr>
+                <td>Email Address:</td>
+                <td><label>
+                    <input type="text" name="email" id="email" />
+                </label></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><label>
+                    <input type="submit" name="submit" id="submit" value="Show It!" 
+                    onclick="displayNameEmail(this.form); return false;" />
+                </label></td> <!-- return false koydum çünkü submit'e bastığımda hata vermesin, -->
+            </tr>               <!-- sayfa yenilenmesin ve sadece uyarı mesajı gözüksün diye -->
+        </table>
+    </form>
+    
+</body>
+</html>
